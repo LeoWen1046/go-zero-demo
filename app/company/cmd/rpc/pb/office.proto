@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+package pb;
+
+
+/*----------------办公室相关接口-----------------*/
+// 办公室结构体
+message Office {
+  int64 id = 1;  //办公室编号
+  string name = 2;   //办公室名称
+  string address = 3;  //办公室地址
+}
+
+// 创建办公室
+message CreateOfficeRequest {
+  string name = 1;   //办公室名称
+  string address = 2;  //办公室地址
+}
+
+message CreateOfficeResponse {
+  string msg = 1;   //是否创建成功
+}
+
+// 删除办公室
+message DeleteOfficeRequest {
+  int64 id = 1;  //办公室id
+}
+
+message DeleteOfficeResponse {
+  string msg = 1;   //是否删除成功
+}
+
+// 更新办公室
+message UpdateOfficeRequest {
+  int64 id = 1;  //办公室编号
+  string name = 2;   //办公室名称
+  string address = 3;  //办公室地址
+}
+
+message UpdateOfficeResponse {
+  string msg = 1;   //是否更新成功
+}
+
+// 查询办公室
+message GetOfficeRequest {
+  int64 id = 1;  //办公室id
+}
+
+message GetOfficeResponse {
+  Office office = 1;   //办公室信息
+}
+
+// 查询办公室列表
+message ListOfficeRequest {
+  int64 page = 1;  //页码
+  int64 pageSize = 2;   //每页数量
+  string search = 3;  //搜索关键字
+  string order = 4;  //排序字段
+  string sort = 5;  //排序方式,desc or as
+}
+
+message ListOfficeResponse {
+  int64 total = 1;  //总数
+  repeated Office list = 2;   //办公室列表
+}
+
+service officeService {
+  rpc CreatOffice(CreateOfficeRequest) returns(CreateOfficeResponse);
+  rpc DeleteOffice(DeleteOfficeRequest) returns(DeleteOfficeResponse);
+  rpc UpdateOffice(UpdateOfficeRequest) returns(UpdateOfficeResponse);
+  rpc GetOffice(GetOfficeRequest) returns(GetOfficeResponse);
+  rpc ListOffice(ListOfficeRequest) returns(ListOfficeResponse);
+}

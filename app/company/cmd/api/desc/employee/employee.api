@@ -1,0 +1,83 @@
+syntax = "v1"
+
+info(
+    title: "员工信息"
+    desc: "员工信息"
+    author: "wenjr"
+    email: "wenjr@300624.cn"
+    version: "v1"
+    date: "2023-11-29"
+)
+
+type Employee {
+    Id int64 `json:"id" tag:"员工id"`
+    Name string `json:"name" tag:"员工姓名"`
+    Age int64 `json:"age" tag:"员工年龄"`
+    Company string `json:"company" tag:"员工公司"`
+    Phone string `json:"phone" tag:"员工电话"`
+    OfficeID int64 `json:"officeID" tag:"办公室id"`
+}
+
+type (
+    EmployeeCreateRequest struct {
+        Name string `json:"name" tag:"员工姓名"`
+        Age int64 `json:"age" tag:"员工年龄"`
+        Company string `json:"company" tag:"员工公司"`
+        Phone string `json:"phone" tag:"员工电话"`
+        OfficeID int64 `json:"officeID" tag:"办公室id"`
+    }
+
+    EmployeeCreateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    EmployeeDeleteRequest struct {
+        Id int64 `json:"id" tag:"员工id"`
+    }
+
+    EmployeeDeleteResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    EmployeeUpdateRequest struct {
+        Id int64 `path:"id" tag:"员工id"`
+        Name string `json:"name,optional" tag:"员工姓名"`
+        Age int64 `json:"age,optional" tag:"员工年龄"`
+        Company string `json:"company,optional" tag:"员工公司"`
+        Phone string `json:"phone,optional" tag:"员工电话"`
+        OfficeID int64 `json:"officeID,optional" tag:"办公室id"`
+    }
+
+    EmployeeUpdateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    EmployeeDetailRequest struct {
+        Id int64 `form:"id" tag:"员工id"`
+    }
+
+    EmployeeDetailResponse struct {
+        Employee Employee `json:"employee" tag:"员工信息"`
+    }
+)
+
+type (
+    EmployeeListRequest struct {
+        Page int64 `form:"page" tag:"页码"`
+        PageSize int64 `form:"pageSize" tag:"每页条数"`
+        Search string `form:"search,optional" tag:"搜索关键字,支持姓名,公司,地址"`
+        Sort string `form:"sort,optional" tag:"排序字段,默认按照id排序,可选值id,name,age,company,phone,officeID"`
+        Order string `form:"order,optional" tag:"排序方式, 默认为升序asc, 可选值: asc, desc"`
+    }
+
+    EmployeeListResponse {
+        Total int64 `json:"total" tag:"总条数"`
+        List []Employee `json:"list" tag:"员工列表"`
+    }
+)

@@ -1,0 +1,74 @@
+syntax = "v1"
+
+info(
+    title: "办公室信息"
+    desc: "办公室信息"
+    author: "wenjr"
+    email: "wenjr@300624.cn"
+    version: "v1"
+    date: "2023-11-29"
+)
+
+type Office struct {
+    ID int64 `json:"id" description:"办公室ID"`
+    Name string `json:"name" description:"办公室名称"`
+    Address string `json:"address" description:"办公室地址"`
+}
+
+type (
+    OfficeCreateRequest struct {
+        Name string `json:"name" description:"办公室名称"`
+        Address string `json:"address" description:"办公室地址"`
+    }
+
+    OfficeCreateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    OfficeDeleteRequest struct {
+        ID int64 `json:"id" description:"办公室ID"`
+    }
+
+    OfficeDeleteResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    OfficeUpdateRequest struct {
+        ID int64 `path:"id" description:"办公室ID"`
+        Name string `json:"name,optional" description:"办公室名称"`
+        Address string `json:"address,optional" description:"办公室地址"`
+    }
+
+    OfficeUpdateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    OfficeDetailRequest struct {
+        ID int64 `form:"id" description:"办公室ID"`
+    }
+
+    OfficeDetailResponse struct {
+        Office Office `json:"office" description:"办公室信息"`
+    }
+)
+
+type (
+    OfficeListRequest struct {
+        Page int `form:"page" description:"页码"`
+        PageSize int `form:"pageSize" description:"每页条数"`
+        Search string `form:"search,optional" description:"搜索关键字, 支持办公室名称或地址"`
+        Sort string `form:"sort,optional" description:"排序字段, 默认按照ID排序, 可选值: id, name, address"`
+        Order string `form:"order,optional" description:"排序方式, 默认为升序asc, 可选值: asc, desc"`
+    }
+
+    OfficeListResponse struct {
+        Total int `json:"total" description:"总条数"`
+        List []Office `json:"list" description:"办公室列表"`
+    }
+)

@@ -1,0 +1,17 @@
+Name: company
+Host: 0.0.0.0
+Port: 8888
+
+Mysql:
+  Host: 127.0.0.1
+  Port: 3306
+  User: root
+  Password: "123mysql"
+  Database: school
+  Charset: utf8
+
+OfficeRpcConf:
+  Rpc:
+    Timeout: 61000
+    Endpoints:
+      - 127.0.0.1:8080

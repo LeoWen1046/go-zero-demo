@@ -1,0 +1,70 @@
+syntax = "v1"
+
+info(
+	title: "公司接口"
+	desc: "公司接口"
+	author: "wenjr"
+	email: "wenjr@300624.cn"
+	version: "v1"
+	date: "2023-11-29"
+)
+
+import (
+	"employee/employee.api"
+	"office/office.api"
+)
+
+//=====================================> employee v1 <=================================
+
+@server(
+	prefix: company/v1
+	group: employee
+)
+service company {
+	@doc "新建员工信息"
+	@handler createEmployee
+	post /employee/create (EmployeeCreateRequest) returns (EmployeeCreateResponse)
+
+	@doc "删除员工信息"
+	@handler deleteEmployee
+	delete /employee/detele (EmployeeDeleteRequest) returns (EmployeeDeleteResponse)
+
+	@doc "更新员工信息"
+	@handler updateEmployee
+	post /employee/update/:id (EmployeeUpdateRequest) returns (EmployeeUpdateResponse)
+
+	@doc "员工详情"
+	@handler getEmployee
+	get /employee/get (EmployeeDetailRequest) returns (EmployeeDetailResponse)
+
+	@doc "员工列表"
+	@handler listEmployee
+	get /employee/list (EmployeeListRequest) returns (EmployeeListResponse)
+}
+
+//=====================================>  office v1 <====================================
+@server(
+	prefix: company/v1
+	group: office
+)
+service company {
+	@doc "新建办公室信息"
+	@handler createOffice
+	post /office/create (OfficeCreateRequest) returns (OfficeCreateResponse)
+
+	@doc "删除办公室信息"
+	@handler deleteOffice
+	delete /office/detele (OfficeDeleteRequest) returns (OfficeDeleteResponse)
+
+	@doc "更新办公室信息"
+	@handler updateOffice
+	post /office/update/:id (OfficeUpdateRequest) returns (OfficeUpdateResponse)
+
+	@doc "办公室详情"
+	@handler getOffice
+	get /office/get (OfficeDetailRequest) returns (OfficeDetailResponse)
+
+	@doc "办公室列表"
+	@handler listOffice
+	get /office/list (OfficeListRequest) returns (OfficeListResponse)
+}
