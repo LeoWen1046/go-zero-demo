@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/example/user";
+
+message User {
+  int64 id = 1;
+  string name = 2;
+  int64 age = 3;
+}
+
+message LoginReq{
+  string name = 1;
+  int64 age = 2;
+}
+message LoginResp{
+  string msg = 1;   //是否创建成功
+}
+message UserInfoReq{
+  int64 id = 1;
+}
+message UserInfoResp{
+  User user = 1;
+}
+message UserInfoUpdateReq{}
+message UserInfoUpdateResp{}
+message UserListReq{}
+message UserListResp{}
+service UserService{
+  rpc Login (LoginReq) returns (LoginResp);
+  rpc UserInfo (UserInfoReq) returns (UserInfoResp);
+  rpc UserInfoUpdate (UserInfoUpdateReq) returns (UserInfoUpdateResp);
+  rpc UserList (UserListReq) returns (UserListResp);
+}
+
+message UserRole {
+  int64 id = 1;
+  string name = 2;
+}
+
+message UserRoleListReq{}
+message UserRoleListResp{}
+message UserRoleUpdateReq{}
+message UserRoleUpdateResp{}
+message UserRoleInfoReq{
+  int64 id = 1;
+}
+message UserRoleInfoResp{
+  UserRole userRole = 1;
+}
+message UserRoleAddReq{
+  string name =1;
+}
+message UserRoleAddResp{
+  string msg = 1;   //是否创建成功
+}
+message UserRoleDeleteReq{}
+message UserRoleDeleteResp{}
+service UserRoleService{
+  rpc UserRoleList (UserRoleListReq) returns (UserRoleListResp);
+  rpc UserRoleUpdate (UserRoleUpdateReq) returns (UserRoleUpdateResp);
+  rpc UserRoleInfo (UserRoleInfoReq) returns (UserRoleInfoResp);
+  rpc UserRoleAdd (UserRoleAddReq) returns (UserRoleAddResp);
+  rpc UserRoleDelete (UserRoleDeleteReq) returns (UserRoleDeleteResp);
+}
+
+message UserClass {
+  int64 id = 1;
+  string name = 2;
+  string room = 3;
+}
+
+message UserClassListReq{}
+message UserClassListResp{}
+message UserClassUpdateReq{}
+message UserClassUpdateResp{}
+message UserClassInfoReq{
+  int64 id = 1;
+}
+message UserClassInfoResp{
+  UserClass userClass = 1;
+}
+message UserClassAddReq{
+  string name = 1;
+  string room = 2;
+}
+message UserClassAddResp{
+  string msg = 1;   //是否创建成功
+}
+message UserClassDeleteReq{}
+message UserClassDeleteResp{}
+service UserClassService{
+  rpc UserClassList (UserClassListReq) returns (UserClassListResp);
+  rpc UserClassUpdate (UserClassUpdateReq) returns (UserClassUpdateResp);
+  rpc UserClassInfo (UserClassInfoReq) returns (UserClassInfoResp);
+  rpc UserClassAdd (UserClassAddReq) returns (UserClassAddResp);
+  rpc UserClassDelete (UserClassDeleteReq) returns (UserClassDeleteResp);
+}

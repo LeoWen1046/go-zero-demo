@@ -1,0 +1,46 @@
+syntax = "v1"
+
+info(
+	title: "学校接口"
+	desc: "学校接口"
+	author: "wenjr"
+	email: "wenjr@300624.cn"
+	version: "v1"
+	date: "2024-01-23"
+)
+
+import (
+	"userclass/user_class.api"
+	"userrole/user_role.api"
+)
+
+//=====================================> user_class v1 <=================================
+
+@server(
+	prefix: school/v1
+	group: class
+)
+service school {
+	@doc "新建班级信息"
+	@handler createClass
+	post /class/create (UserClassCreateRequest) returns (UserClassCreateResponse)
+
+	@doc "班级详情"
+	@handler getClass
+	get /class/get (UserClassDetailRequest) returns (UserClassDetailResponse)
+}
+
+//=====================================>  office v1 <====================================
+@server(
+	prefix: school/v1
+	group: role
+)
+service school {
+	@doc "新建角色信息"
+	@handler createRole
+	post /role/create (UserRoleCreateRequest) returns (UserRoleCreateResponse)
+
+	@doc "角色详情"
+	@handler getRole
+	get /role/get (UserRoleDetailRequest) returns (UserRoleDetailResponse)
+}

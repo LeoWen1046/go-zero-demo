@@ -1,0 +1,35 @@
+syntax = "v1"
+
+info(
+    title: "角色信息"
+    desc: "角色信息"
+    author: "wenjr"
+    email: "wenjr@300624.cn"
+    version: "v1"
+    date: "2024-01-23"
+)
+
+type UserRole struct {
+    ID int64 `json:"id" description:"角色ID"`
+    Name string `json:"name" description:"角色名称"`
+}
+
+type (
+    UserRoleCreateRequest struct {
+        Name string `json:"name" description:"角色名称"`
+    }
+
+    UserRoleCreateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    UserRoleDetailRequest struct {
+        ID int64 `form:"id" description:"角色ID"`
+    }
+
+    UserRoleDetailResponse struct {
+        UserRole UserRole `json:"userRole" description:"角色信息"`
+    }
+)

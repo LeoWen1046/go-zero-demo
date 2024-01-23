@@ -1,0 +1,37 @@
+syntax = "v1"
+
+info(
+    title: "班级信息"
+    desc: "班级信息"
+    author: "wenjr"
+    email: "wenjr@300624.cn"
+    version: "v1"
+    date: "2024-01-23"
+)
+
+type UserClass struct {
+    ID int64 `json:"id" description:"班级ID"`
+    Name string `json:"name" description:"班级名称"`
+    Room string `json:"room" description:"班级教室"`
+}
+
+type (
+    UserClassCreateRequest struct {
+        Name string `json:"name" description:"名称"`
+        Room string `json:"room" description:"教室"`
+    }
+
+    UserClassCreateResponse struct {
+        Msg string `json:"msg" tag:"返回信息"`
+    }
+)
+
+type (
+    UserClassDetailRequest struct {
+        ID int64 `form:"id" description:"ID"`
+    }
+
+    UserClassDetailResponse struct {
+        UserClass UserClass `json:"userClass" description:"班级信息"`
+    }
+)
