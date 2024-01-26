@@ -1,0 +1,817 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "公司接口",
+    "description": "公司接口",
+    "version": "v1"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "company/v1/employee/create": {
+      "post": {
+        "summary": "新建员工信息",
+        "operationId": "createEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EmployeeCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmployeeCreateRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "employee"
+        ]
+      }
+    },
+    "company/v1/employee/detele": {
+      "delete": {
+        "summary": "删除员工信息",
+        "operationId": "deleteEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EmployeeDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmployeeDeleteRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "employee"
+        ]
+      }
+    },
+    "company/v1/employee/get": {
+      "get": {
+        "summary": "员工详情",
+        "operationId": "getEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EmployeeDetailResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "员工id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "employee"
+        ]
+      }
+    },
+    "company/v1/employee/list": {
+      "get": {
+        "summary": "员工列表",
+        "operationId": "listEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EmployeeListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "页码",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "每页条数",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "搜索关键字",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "排序字段",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "排序方式",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "employee"
+        ]
+      }
+    },
+    "company/v1/employee/update/{id}": {
+      "post": {
+        "summary": "更新员工信息",
+        "operationId": "updateEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/EmployeeUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmployeeUpdateRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "employee"
+        ]
+      }
+    },
+    "company/v1/office/create": {
+      "post": {
+        "summary": "新建办公室信息",
+        "operationId": "createOffice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OfficeCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OfficeCreateRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "office"
+        ]
+      }
+    },
+    "company/v1/office/detele": {
+      "delete": {
+        "summary": "删除办公室信息",
+        "operationId": "deleteOffice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OfficeDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OfficeDeleteRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "office"
+        ]
+      }
+    },
+    "company/v1/office/get": {
+      "get": {
+        "summary": "办公室详情",
+        "operationId": "getOffice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OfficeDetailResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "办公室ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "office"
+        ]
+      }
+    },
+    "company/v1/office/list": {
+      "get": {
+        "summary": "办公室列表",
+        "operationId": "listOffice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OfficeListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "页码",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "每页条数",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "搜索关键字",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "排序字段",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "排序方式",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "office"
+        ]
+      }
+    },
+    "company/v1/office/update/{id}": {
+      "post": {
+        "summary": "更新办公室信息",
+        "operationId": "updateOffice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OfficeUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OfficeUpdateRequest"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "office"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Employee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "company": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "officeID": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Employee",
+      "required": [
+        "id",
+        "员工id",
+        "name",
+        "员工姓名",
+        "age",
+        "员工年龄",
+        "company",
+        "员工公司",
+        "phone",
+        "员工电话",
+        "officeID",
+        "办公室id"
+      ]
+    },
+    "EmployeeCreateRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "company": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "officeID": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "EmployeeCreateRequest",
+      "required": [
+        "name",
+        "员工姓名",
+        "age",
+        "员工年龄",
+        "company",
+        "员工公司",
+        "phone",
+        "员工电话",
+        "officeID",
+        "办公室id"
+      ]
+    },
+    "EmployeeCreateResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "EmployeeCreateResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    },
+    "EmployeeDeleteRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "EmployeeDeleteRequest",
+      "required": [
+        "id",
+        "员工id"
+      ]
+    },
+    "EmployeeDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "EmployeeDeleteResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    },
+    "EmployeeDetailRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "EmployeeDetailRequest",
+      "required": [
+        "id",
+        "员工id"
+      ]
+    },
+    "EmployeeDetailResponse": {
+      "type": "object",
+      "properties": {
+        "employee": {
+          "$ref": "#/definitions/Employee"
+        }
+      },
+      "title": "EmployeeDetailResponse",
+      "required": [
+        "employee",
+        "员工信息"
+      ]
+    },
+    "EmployeeListRequest": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "search": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        }
+      },
+      "title": "EmployeeListRequest",
+      "required": [
+        "page",
+        "页码",
+        "pageSize",
+        "每页条数",
+        "搜索关键字",
+        "排序字段",
+        "排序方式"
+      ]
+    },
+    "EmployeeListResponse": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Employee"
+          }
+        }
+      },
+      "title": "EmployeeListResponse",
+      "required": [
+        "total",
+        "总条数",
+        "list",
+        "员工列表"
+      ]
+    },
+    "EmployeeUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "company": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "officeID": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "EmployeeUpdateRequest",
+      "required": [
+        "id",
+        "员工id",
+        "员工姓名",
+        "员工年龄",
+        "员工公司",
+        "员工电话",
+        "办公室id"
+      ]
+    },
+    "EmployeeUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "EmployeeUpdateResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    },
+    "Office": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "Office",
+      "required": [
+        "id",
+        "办公室ID",
+        "name",
+        "办公室名称",
+        "address",
+        "办公室地址"
+      ]
+    },
+    "OfficeCreateRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeCreateRequest",
+      "required": [
+        "name",
+        "办公室名称",
+        "address",
+        "办公室地址"
+      ]
+    },
+    "OfficeCreateResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeCreateResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    },
+    "OfficeDeleteRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "OfficeDeleteRequest",
+      "required": [
+        "id",
+        "办公室ID"
+      ]
+    },
+    "OfficeDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeDeleteResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    },
+    "OfficeDetailRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "OfficeDetailRequest",
+      "required": [
+        "id",
+        "办公室ID"
+      ]
+    },
+    "OfficeDetailResponse": {
+      "type": "object",
+      "properties": {
+        "office": {
+          "$ref": "#/definitions/Office"
+        }
+      },
+      "title": "OfficeDetailResponse",
+      "required": [
+        "office",
+        "办公室信息"
+      ]
+    },
+    "OfficeListRequest": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "search": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeListRequest",
+      "required": [
+        "page",
+        "页码",
+        "pageSize",
+        "每页条数",
+        "搜索关键字",
+        "排序字段",
+        "排序方式"
+      ]
+    },
+    "OfficeListResponse": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Office"
+          }
+        }
+      },
+      "title": "OfficeListResponse",
+      "required": [
+        "total",
+        "总条数",
+        "list",
+        "办公室列表"
+      ]
+    },
+    "OfficeUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeUpdateRequest",
+      "required": [
+        "id",
+        "办公室ID",
+        "办公室名称",
+        "办公室地址"
+      ]
+    },
+    "OfficeUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "OfficeUpdateResponse",
+      "required": [
+        "msg",
+        "返回信息"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}
